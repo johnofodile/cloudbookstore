@@ -1,0 +1,24 @@
+{
+  "name": "webbookstore",
+  "version": "1.0.0",
+  "description": "ebookwebapp",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnofodile/webbookstore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnofodile/webbookstore/issues"
+  },
+  "homepage": "https://github.com/johnofodile/webbookstore#readme",
+  "dependencies": {
+    "better-sqlite3": "^7.5.1",
+    "express": "^4.18.0",
+    "express-session": "^1.17.3"
+  }
+}

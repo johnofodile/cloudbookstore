@@ -1,0 +1,193 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar{
+    padding:1rem;
+    display:flex;
+    justify-content: space-between; 
+
+    
+    background-color:darkgoldenrod;
+    text-decoration: none;
+    
+    
+ 
+
+}
+
+nav a{
+    text-decoration: none;
+}
+#search-form{
+    margin-top: 0px;
+  
+    height:100%; 
+  
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+ 
+  
+}
+#search-form #search-box{
+
+   
+    padding:1rem 0;
+    color:black;
+    height:0.5rem;
+  
+    text-transform: none;
+    background:none;
+}
+#search-form #search-box::placeholder{
+    color:black;
+}
+
+#search-form #search-box::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+}
+
+#search-form label{
+    color:black;
+    cursor:pointer;
+   
+}
+
+#search-form label:hover{
+    color:var(--green);
+}
+
+#search-form #close{
+    
+    color:black;
+    cursor: pointer;
+    top: 2rem; right:3rem;
+  
+}
+
+body{
+   
+    font-family: 'Bitter', serif;
+    background-image: url("/images/turkey.jpg");
+    height: 100%; 
+  
+   
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+  }
+  
+  .book{
+    width:300px;
+    margin:1rem;
+    border-radius:3px;
+    box-shadow:0.2px 4px 5px rgba(0,0,0,0,1);
+    background-color:grey;
+    position:relative;
+    overflow:hidden;
+  
+  }
+
+
+  #main{
+    max-width: 50%;
+    display:flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+   
+    justify-content: center;
+  }
+  .bookDescription{
+    
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.5rem 1rem 1rem;
+  }
+  .bookDescription span{
+    background-color:darkmagenta ;
+    padding:0.25rem 0.5rem;
+  }
+  .description{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: white;
+    padding:1rem;
+    max-height:100%;
+    transform:translateY(101%);
+    transition:transform 0.3s ease-in;
+  }
+  .book:hover .description{
+    transform:translateY(0);
+  
+  }
+  .buttonImage{
+    width:100%;
+  }
+  .bookImage{
+    width:100%
+  }
+  .ploginStatus{
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    color:black
+  
+   }
+   .registrationDiv{
+    margin-top: 10rem;
+    color:white;
+    
+   
+    margin-left: auto;
+    margin-right:auto ;
+    padding-left: 20px;
+    width:50%;
+    
+    background-color: black;
+  
+  }
+  .loginForm{
+    margin-top: 5rem;
+    color:white;
+    display:flex;
+    flex-direction: column;
+    
+  }
+  .loginStatus{
+   
+    height:5rem;
+    float:right;
+    margin-right: 2px;
+    
+  }
+  .x{
+    display:flex;
+  }
+  .registerTitle{
+    color:yellowgreen;
+  }
+  input[type="submit"] {
+ 
+ 
+    margin-top: .5rem;
+    width:20%;
+    
+  }
+  input{
+    width:70%;
+    margin-bottom: 1rem;
+  }
+    
+   
+    
+
+
