@@ -1,49 +1,76 @@
-const express=require("express");
-const path = require("path");
 
-const PORT = process.env.PORT || 5000;
-
-const https=require("https");
-
-const app=express();
-
-const bodyParser=require("body-parser");
-
-app.use(bodyParser.urlencoded({extended:true}));
-
-app.use(express.static("Frontend"));
-app.use(express.json({ limit: '100MB' }));
-const bettersqlite3=require('better-sqlite3');
-const db = bettersqlite3('./Database/LibraryDB.sqlite3');
+const express = require("express");
+var expressSession = require('express-session');
+var bodyParser = require('body-parser');
+var app = express();
+const PORT = process.env.PORT || 5010;
 
 
 
-app.get("/",function(req,res){
-   
-res.sendFile(__dirname+ "/index.html");
+//controllers
+var login = require('./controllers/login');
+var signup = require('./controllers/signup');
 
-console.log(__dirname);
+var logout = require('./controllers/logout');
+
+
+var customer = require('./controllers/customer');
+var admin = require('./controllers/admin');
+
+//configure
+app.set('view engine', 'ejs');
+
+//middlewares
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressSession({ secret: 'my top secret pass', resave: false, saveUninitialized: true }));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/images', express.static(__dirname + '/images'));
+
+
+app.use('*', function (req, res, next) {
+
+   if (req.originalUrl == '/login' || req.originalUrl == '/signup') {
+      next();
+   }
+   else {
+      if (!req.session.admin && !req.session.customer) {
+         res.redirect('/login');
+         return;
+      }
+      next();
+   }
 });
-   
 
-app.use(express.json({ limit: '100MB' }));
-   
-  /*app.get("/screeningspage",function(req,res){
-   
-      res.sendFile(__dirname+ "/Frontend/html/screenings.html");
-      
-      console.log(__dirname);
-         });
-         */
-         
-         
 
-app.listen(PORT,function(){
+//routes
+
+app.use('/login', login);
+app.use('/signup', signup);
+app.use('/logout', logout);
+app.use('/admin', admin);
+
+
+
+//admin routes
+//app.use('/admin', admin);
+
+
+//customer routes
+
+app.use('/customer', customer);
+
+app.listen(PORT, function () {
    console.log("listening on http://Localhost:" + PORT);
 });
 
 
-const login=require("./login.js");
+
+
+
+
+
+
+const login=require("./views/login.js");
 login(app,db);
 
 const setupRESTapi=require("./rest-api");
