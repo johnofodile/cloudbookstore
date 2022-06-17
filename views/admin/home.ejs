@@ -1,0 +1,23 @@
+<%-include('../partials/header.html')%>
+    <link rel="stylesheet" href="/../../css/admin.css">
+    <title>Admininistration</title>
+    </head>
+
+    <body>
+
+        <%-include('partials/navbar.html')%>
+        <div class="container-fluid">
+            <div class="row">
+                <%-include('partials/sidebar.html')%>
+                <div class="col-md-10 content">
+                    <p class="display-2">Quick Inventory</p>
+                    <div class="alert alert-primary" role="alert">
+                        Total Books: <span style="float: right;"><%=bk%></span>
+                    </div>
+                    <div class="alert alert-primary" role="alert">
+                        Total Members: <span style="float: right;"><%=usr%></span>
+                </div>
+            </div>
+        </div>
+
+        <%-include('../partials/footer.html')%>
