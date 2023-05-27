@@ -53,9 +53,10 @@
                                             <td>
                                                 <% if(res[i].id) { %>
                                                     <a href="/admin/books/edit/<%=res[i].id%>">Edit Book</a> |
-                                                    <a href="/admin/books/delete/<%=res[i].id%>">Delete Book</a>
-                                                <% } else { %>
+                                                    <a href="/admin/books/delete/<%=res[i].id%>">Delete Book</a>|
                                                     <a href="/admin/books/<%=res[i].id%>/issue">Issue Book</a> |
+                                                <% } else { %>
+                                                   
                                                     <a href="/admin/books/edit/<%=res[i].id%>">Edit Book</a> |
                                                     <a href="/admin/books/delete/<%=res[i].id%>">Delete Book</a>
                                                 <% } %>

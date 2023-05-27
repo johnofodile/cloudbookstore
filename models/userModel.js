@@ -50,15 +50,13 @@ var createUser = (user, callback) => {
    
     
     var sql = "INSERT INTO bookshop.users VALUES( ?,?, ?, ?, ?, ?)";
-    for (var i = 10; i < 100; i++) {
-        var random = i * Math.floor(Math.random()*2);
-        db.executeQuery(sql, [random, user.email, user.firstName, user.lastName, user.password, "user"], function (result) {
+    
+        db.executeQuery(sql, [31, user.email, user.firstName, user.lastName, user.password, "user"], function (result) {
             callback(result);
-        
-        });
+         });
 
     };
-}
+
 
 var getUser = (id, callback) => {
     var sql = "SELECT * FROM bookshop.users WHERE users.id=?";
